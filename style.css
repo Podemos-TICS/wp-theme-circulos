@@ -1,0 +1,16 @@
+/*
+Theme Name: 	WP Círculo Podemos
+Theme URI: 		http://oscarbustos.me
+Description: 	Theme para web personal de los círculos de Podemos
+Version: 		1.0
+Author: 		Óscar Bustos
+Author URI: 	http://oscarbustos.me
+Tags: 			starkers, naked, clean, basic
+*/
+
+@import "css/reset.css";
+@import "css/fonts.css";
+@import "css/common.css";
+@import "css/layout.css";
+@import "css/modules.css";
+

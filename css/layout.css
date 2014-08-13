@@ -1,0 +1,39 @@
+/* TABLE OF CONTENTS
+==================================================
+  #LAYOUT
+  #MEDIA QUERYS
+
+
+/* #LAYOUT
+================================================== */
+
+#main_header{}
+
+#main_content{}
+
+#main_footer{}
+
+.container{
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+}
+
+.container:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+
+
+/* #MEDIA QUERYS
+================================================== */
+@media (max-width: 63.9375em) {}
+@media (max-width: 55em) {}
+@media (max-width: 47.9375em) {}
+@media (max-width: 38.75em) {}
+@media (max-width: 30em) {}

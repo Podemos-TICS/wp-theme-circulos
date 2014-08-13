@@ -1,0 +1,82 @@
+/*
+  PROJECT: CÍRCULO PODEMOS
+  FIRST UPDATE: 13.08.2014
+*/
+
+
+/* TABLE OF CONTENTS
+==================================================
+  #COMMON
+  #TYPOGRAPHY
+  #HELP CLASSES
+
+
+/* #COMMON
+================================================== */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3em;
+  color: #333;
+}
+
+li{
+  list-style: none;
+}
+
+ol{
+  list-style-type:decimal;
+}
+
+
+/* #TYPOGRAPHY
+================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'allerbold', sans-serif;
+  margin: 0;
+  font-weight: normal;
+}
+
+p { 
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+  margin: 0 0 15px 0;
+}
+
+a{
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.bloquote{
+  font-style: italic;
+}
+
+
+/* #HELP CLASSES
+================================================== */
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+* html .clearfix {
+  zoom: 1; 
+}
+
+*:first-child+html .clearfix { 
+  zoom: 1; 
+} 
+
+.center{
+  text-align: center;
+}
+
+.right{
+  text-align: right;
+}
