@@ -11,6 +11,13 @@
 <section id="main_content" role="main">
 	<div class="container">
 
+		<section class="call_to_action">
+			<div><a class="circulo icon colabora" href="#" title="Colabora"></a><h2><a href="#" rel="nofollow" title="Colabora">Colabora</a></h2></div>
+			<div><a class="circulo icon fecha" href="#" title="Eventos"></a><h2><a href="#" rel="nofollow" title="Eventos">Eventos</a></h2></div>
+			<div><a class="circulo icon comisiones" href="#" title="Comisiones"></a><h2><a href="#" rel="nofollow" title="Comisiones">Comisiones</a></h2></div>
+			<div><a class="circulo icon propuestas" href="#" title="Propuestas"></a><h2><a href="#" rel="nofollow" title="Propuestas">Propuestas</a></h2></div>
+		</section>
+
 		<?php if ( have_posts() ): ?>
 		<h2>Latest Posts</h2>	
 		<ol>
