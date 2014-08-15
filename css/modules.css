@@ -1,8 +1,97 @@
 /* 
-*   LOGO
+*   MAIN HEADER
 * ============================ */
 
-#logo{
-	position: absolute;
+#main_header{
+	background: url('../img/main-bg.jpg') no-repeat center;
+	overflow: hidden;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
+
+#main_header h1 a{
+	font-size: 50px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	display: block;
+	text-align: center;
+	padding: 50px 0;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5)
+}
+
+
+/* 
+*   MAIN MENU
+* ============================ */
+
+.nav_container{
+	background-color: #4B244C;
+	border-top: 1px solid #381939;
+	border-bottom: 4px solid #391d3a;
+}
+
+.nav_container .main_nav {
+	margin-right: 50px;
+}
+
+.nav_container .main_nav li{
+	float: left;
+}
+
+.nav_container .main_nav li:first-child{
+	border-left: 1px solid #381939;
+}
+
+.nav_container .main_nav li:last-child{
+	border-right: 1px solid #583159;
+}
+
+.nav_container .main_nav a{
+	border-right: 1px solid #381939;
+	border-left: 1px solid #583159;
+	background-color: #4B244C;
+	font-size: 17px;
+	color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	padding: 15px 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	-webkit-transition: background-color 200ms ease-in-out;
+	-moz-transition: background-color 200ms ease-in-out;
+	-ms-transition: background-color 200ms ease-in-out;
+	-o-transition: background-color 200ms ease-in-out;
+	transition: background-color 200ms ease-in-out;
+}
+
+.nav_container .main_nav a:hover{
+	background-color: #632764;
+}
+
+/* 
+*   SEARCH FORM
+* ============================ */
+
+#searchform {
+	float: right;
+	position: relative;
+	top: 10px;
+	left: 20px;
+}
+
+#searchform input[type=text]{
+	border: none;
+	text-indent: 10px;
+	font-size: 16px;
+	padding: 7px;
+	font-style: italic;
+}
+
+#searchform input[type=submit]{
+	display: none;
+}
+
 
