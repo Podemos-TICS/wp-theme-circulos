@@ -35,6 +35,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'allerbold', sans-serif;
   margin: 0;
   font-weight: normal;
+  color: #612D62;
 }
 
 p { 
@@ -44,14 +45,53 @@ p {
 }
 
 a{
-  color: #1a1a1a;
   text-decoration: none;
+  color: #612D62;
 }
 
 .bloquote{
   font-style: italic;
 }
 
+.section_title,
+.section_title a{
+  font-size: 35px;
+  color: #612D62;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 15px auto;
+}
+
+
+/* #BUTTONS
+================================================== */
+
+.button{
+  background-color: #4B244C;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  border-bottom: 4px solid #391D3A;
+  padding: 15px 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px auto;
+  border-radius: 3px;
+  width: 260px;
+  -webkit-transition: background-color 200ms ease-in-out;
+  -moz-transition: background-color 200ms ease-in-out;
+  -ms-transition: background-color 200ms ease-in-out;
+  -o-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+}
+
+
+.button:hover{
+  background-color: #391D3A;
+}
 
 /* #HELP CLASSES
 ================================================== */

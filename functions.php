@@ -95,8 +95,7 @@
 	/* Custom Image Size
 	================================================== */
 		
-	add_image_size( 'homepage-thumb', 460, 222 ); // Hard Crop Mode
-	add_image_size( 'work-thumb', 460, 306 ); // Hard Crop Mode
+	add_image_size( 'last_post', 466, 254 ); // Hard Crop Mode
 
 	/* Sidebar
 	================================================== */
