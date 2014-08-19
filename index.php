@@ -21,7 +21,7 @@
 			<?php if ( have_posts() ): ?>
 			<?php $temp_query = $wp_query; query_posts('showposts=2&cat=-55'); ?>
 			<?php while (have_posts()) { the_post(); ?>
-			<article itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+			<article class="post" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 				<header>
 					<figure><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="nofollow"><?php echo get_the_post_thumbnail($post_id, 'last_post')?></a></figure>
 					<?php $parentscategory ="";
@@ -33,7 +33,13 @@
 					echo substr($parentscategory,0,-2); ?>
 				</header>
 				<h2 itemprop="headline"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-				<time class="icon hora" datetime="<?php the_time( 'F j, Y' ); ?>" pubdate><?php the_date(); ?></time>
+				<aside class="post_author clearfix" itemscope itemtype="http://data-vocabulary.org/Person">
+					<?php if ( get_the_author_meta( 'twitter' ) ) : ?>
+					<figure itemprop="photo"><?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?></figure>
+					<h4 rel="author"><a target="_blank" title="Google Plus de <?php echo get_the_author() ; ?>" href="<?php the_author_meta( 'google_plus' ); ?>?rel=author" itemprop="contact"> de <span itemprop="name"><?php echo get_the_author() ; ?></span></a></h4>
+					<?php endif; ?>
+					<time datetime="<?php the_time( 'Y/m/d g:i:s A' ); ?>" pubdate><?php the_date( 'j \d\e F Y'); ?></time>
+				</aside>
 				<?php the_excerpt(); ?>
 			</article>
 			<?php } $wp_query = $temp_query; ?>

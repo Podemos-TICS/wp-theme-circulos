@@ -1,6 +1,5 @@
 
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300');
-
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,600,800,300);
 @font-face {
 	font-family: 'podemos';
 	src:url('../fonts/podemos.eot?-hun184');
@@ -35,7 +34,8 @@
 .icon.location:before {
 	content: "\e60a";
 }
-.icon.hora:before {
+.icon.hora:before,
+#comments ol time a:before {
 	content: "\e60b";
 }
 .icon.fecha:before {

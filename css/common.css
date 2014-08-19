@@ -15,7 +15,7 @@
 ================================================== */
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
   color: #333;
 }
 
@@ -27,12 +27,15 @@ ol{
   list-style-type:decimal;
 }
 
+.module{
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
 
 /* #TYPOGRAPHY
 ================================================== */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'allerbold', sans-serif;
   margin: 0;
   font-weight: normal;
   color: #612D62;
@@ -40,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p { 
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.8em;
+  font-size: 1em;
   margin: 0 0 15px 0;
 }
 
@@ -60,10 +63,17 @@ a{
   display: block;
   text-align: center;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 800;
   margin: 15px auto;
 }
 
+.module_title,
+.widget_title,
+#reply-title{
+  font-size: 1.3em;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
 
 /* #BUTTONS
 ================================================== */
@@ -71,7 +81,7 @@ a{
 .button{
   background-color: #4B244C;
   color: #fff;
-  font-weight: bold;
+  font-weight: 800;
   display: block;
   border-bottom: 4px solid #391D3A;
   padding: 15px 10px;

@@ -96,6 +96,7 @@
 	================================================== */
 		
 	add_image_size( 'last_post', 466, 254 ); // Hard Crop Mode
+	add_image_size( 'post', 629, 344 ); // Hard Crop Mode
 
 	/* Sidebar
 	================================================== */
@@ -109,7 +110,7 @@
 		',
 		'after_widget' => '</aside>
 		',
-		'before_title' => '<h3 class="widget-title">
+		'before_title' => '<h3 class="widget_title">
 		',
 		'after_title' => '</h3>
 		',
@@ -132,3 +133,54 @@
 		// return the $classes array
 		return $classes;
 	}
+
+
+
+
+
+
+
+	/* Twitter URL user area
+	================================================== */
+
+	function fb_add_custom_user_profile_fields( $user ) {
+?>
+	<h3><?php _e('Información extra', 'your_textdomain'); ?></h3>
+	
+	<table class="form-table">
+		<tr>
+			<th>
+				<label for="twitter"><?php _e('Twitter', 'your_textdomain'); ?>
+			</label></th>
+			<td>
+				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description"><?php _e('Introduce tu usuario de twitter.', 'your_textdomain'); ?></span>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<label for="google_plus"><?php _e('Google Plus', 'your_textdomain'); ?>
+			</label></th>
+			<td>
+				<input type="text" name="google_plus" id="google_plus" value="<?php echo esc_attr( get_the_author_meta( 'google_plus', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description"><?php _e('Introduce tu url de autor de Google Plus.', 'your_textdomain'); ?></span>
+			</td>
+		</tr>
+	</table>
+
+<?php }
+
+function fb_save_custom_user_profile_fields( $user_id ) {
+	
+	if ( !current_user_can( 'edit_user', $user_id ) )
+		return FALSE;
+	
+	update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
+	update_usermeta( $user_id, 'google_plus', $_POST['google_plus'] );
+}
+
+add_action( 'show_user_profile', 'fb_add_custom_user_profile_fields' );
+add_action( 'edit_user_profile', 'fb_add_custom_user_profile_fields' );
+
+add_action( 'personal_options_update', 'fb_save_custom_user_profile_fields' );
+add_action( 'edit_user_profile_update', 'fb_save_custom_user_profile_fields' );

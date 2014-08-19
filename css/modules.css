@@ -59,7 +59,7 @@
 	vertical-align: top;
 	padding: 15px 20px;
 	text-transform: uppercase;
-	font-weight: bold;
+	font-weight: 600;
 	-webkit-transition: background-color 200ms ease-in-out;
 	-moz-transition: background-color 200ms ease-in-out;
 	-ms-transition: background-color 200ms ease-in-out;
@@ -79,7 +79,6 @@
 	float: right;
 	position: relative;
 	top: 10px;
-	left: 20px;
 }
 
 #searchform input[type=text]{
@@ -147,14 +146,32 @@
 *   LAST POST
 * ============================ */
 
-.last_post article{
-	width: 49.751%;
+.last_post .post{
+	width: 466px;
+	margin: 0 15px;
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
 }
 
-.last_post .category{
+.last_post .post .post_author{
+   padding:0;
+} 
+
+.last_post .post .post_author figure img{
+   width:40px;
+   height:40px;
+} 
+
+.last_post .post .post_author time{
+   top:13px;
+} 
+
+/* 
+*   POST CATEGORY
+* ============================ */
+
+.post .category{
 	background-color: #4B244C;
 	color: #fff;
 	font-weight: bold;
@@ -172,28 +189,258 @@
 	transition: background-color 200ms ease-in-out;
 }
 
-.last_post .category:hover{
+.post .category:hover{
 	background-color: #391D3A;
 }
 
-.last_post article h2 a{
-	display: block;
-}
+/* 
+*   POST
+* ============================ */
 
-.last_post article time::before{
-	margin-right: 6px;
+.post header{
 	position: relative;
-	top: 1px;
 }
 
-.last_post article time{
-	font-size: 16px;
+.post h2{
+	font-size: 37px;
+	line-height: 45px;
+	margin-bottom: 20px;
+	font-weight: 200;
+}
+
+.post .excerpt{
+	font-weight: 600;
+}
+
+/* 
+*   POST AUTHOR
+* ============================ */
+
+
+.post_author{
+	padding: 20px 0;
+}
+
+.post_author figure,
+.post_author h4,
+.post_author p{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	font-style: italic;
+}
+
+.post_author h4{
+	margin-right: 20px;
+}
+.post_author h4 a{
+	color: #bebebe;
+	font-style: italic;
+}
+
+.post_author .twitter a::before{
+	color: #bebebe;
+	font-size: 21px;
+	margin-right: 3px;
+	font-style: normal;
+	position: relative;
+	top: 3px;
+}
+
+.post_author .twitter a{
+	font-style: italic;
+}
+
+.post_author h4 a span,
+.post_author .twitter a{
 	color: #612D62;
+}
+
+.post_author time{
+float: right;
+color: #bebebe;
+font-style: italic;
+font-size: 16px;
+position: relative;
+top: 29px;
+}
+
+.post_author img{
+	border-radius: 48px;
+	float: left;
+	margin: 0 10px 10px 0;
+	width: 70px;
+	height: 70px;
+}
+
+/* 
+*   POST TAG
+* ============================ */
+
+.post_tags a{
+	padding: 10px;
+	display: inline-block;
+	border: 2px solid #612D62;
+	margin: 7px 14px 7px 0;
+	background-color: #fff;
+	font-size: 15px;
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
+}
+
+.post_tags a:hover{
+	background-color: #612D62;
+	color: #fff;
+}
+
+/* 
+*   WIDGET
+* ============================ */
+
+
+.widget {
+margin: 0 0 20px 0;
+border-bottom: 1px solid #f2f2f2;
+padding: 0 0 20px 0;
+font-size: 21px;
+}
+
+.widget:last-child {
+border-bottom: none;
+}
+
+.widget ul li:nth-child(odd) a{
+	background-color: #f2f2f2;
+}
+
+.widget li a{
+	padding: 10px;
+	font-size: 18px;
 	display: block;
-	margin: 13px 0;
+	background: #fff
+	-webkit-transition: background-color 200ms ease-in-out;
+	-moz-transition: background-color 200ms ease-in-out;
+	-ms-transition: background-color 200ms ease-in-out;
+	-o-transition: background-color 200ms ease-in-out;
+	transition: background-color 200ms ease-in-out;
+}
+
+.widget li a:hover,
+.widget ul li:nth-child(odd) a:hover{
+	background-color: #e7e7e7;
 }
 
 
+/* 
+*   COMMENTS
+* ============================ */
+
+#commentform{
+}
+
+#commentform input[type="submit"] {
+  font-weight: bold;
+  margin: 0 0 5px;
+  background: #fff;
+  display: inline-block;
+  font-size: 14px;
+  border: 2px solid #612D62;
+  padding: 10px;
+	-webkit-transition: background 0.3s, -webkit-transform 0.3s;
+	-moz-transition: background 0.3s, -moz-transform 0.3s;
+	transition: background 0.3s, transform 0.3s;
+}
+
+#commentform input[type="submit"]:hover{
+    background:#1a1a1a;
+    color:#fff;
+}
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="password"]{
+	background: #f5f5f5;
+	border: 1px solid #bababa;
+	padding: 5px;
+	width: 100%;
+	  margin: 0 0 5px;
+}
+
+
+#commentform textarea{
+	display: block;
+	border: 1px solid #bababa;
+	background: #f2f2f2;
+	width: 100%;
+  margin: 0 0 5px;
+}
+
+#commentform a{
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+
+.pages_navigation {
+	text-align: center;
+}
+
+.pages_navigation a {
+  font-family: 'allerbold';
+  margin: 5px;
+  display: inline-block;
+  font-size: 14px;
+  border: 1px solid #1a1a1a;
+  padding: 10px;
+	-webkit-transition: background 0.3s, -webkit-transform 0.3s;
+	-moz-transition: background 0.3s, -moz-transform 0.3s;
+	transition: background 0.3s, transform 0.3s;
+}
+
+.pages_navigation a:hover {
+    background:#1a1a1a;
+    color:#fff;
+}
+
+#comments h2{
+	font-size: 21px;
+}
+
+#comments ol{
+	margin: 0;
+	padding: 0;
+}
+
+#comments ol li{
+	padding: 10px;
+	border-bottom: 1px solid #dadada;
+	border-top: 1px solid #fff;
+}
+
+#comments ol li:nth-child(odd){
+	background: #f2f2f2;
+}
+
+#comments ol article > img{
+	float: left;
+	margin: 10px 10px 10px 0;
+	border-radius: 48px;
+}
+
+#comments ol time a{
+	font-size: 16px;
+font-weight: bold;
+}
+
+#comments ol h4,
+#comments ol time,
+#comments ol p{
+	margin-left: 105px;
+	margin-bottom: 10px;
+	display: block;
+}
 
 
 
