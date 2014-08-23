@@ -175,6 +175,15 @@
    padding:0;
 } 
 
+.last_post .post .post_author figure{
+   width:40px;
+   height:40px;
+   background: url('../img/thumbnail_person.jpg') no-repeat center;
+   background-size: 100%;
+   border-radius: 20px;
+   overflow: hidden;
+}
+
 .last_post .post .post_author figure img{
    width:40px;
    height:40px;
