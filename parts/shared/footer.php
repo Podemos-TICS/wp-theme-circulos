@@ -3,12 +3,11 @@
 		<h1><a title="<?php bloginfo( 'name' ); ?>" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<aside class="contact_info">
 			<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-				<span class="icon location" itemprop="streetAddress">Av Jaime I, 33</span>
-				<p><span itemprop="postalCode">03590</span><span itemprop="addressLocality">, Altea</span><span itemprop="addressRegion">, Alicante</span></p>
-				<span itemprop="addressCountry">España</span>
-				<a class="icon mail" href="mailto:oscarbustosgarrido@gmail.com" class="icon mail" itemprop="email">oscarbustosgarrido@gmail.co</a>
-				<span class="icon phone" itemprop="telephone">123456789</span>
-
+				<span class="icon location" itemprop="streetAddress"><?php echo get_option( 'direccion' ); ?></span>
+				<p><span itemprop="postalCode"><?php echo get_option( 'codigo_postal' ); ?></span><span itemprop="addressLocality">, <?php echo get_option( 'localidad' ); ?></span><span itemprop="addressRegion">, <?php echo get_option( 'provincia' ); ?></span></p>
+				<span itemprop="addressCountry"><?php echo get_option( 'pais' ); ?></span>
+				<a class="icon mail" href="mailto:<?php bloginfo( 'admin_email' ); ?>" itemprop="email"><?php bloginfo( 'admin_email' ); ?></a>
+				<!--<span class="icon phone" itemprop="telephone"><?php echo get_option( 'telefono' ); ?></span>-->
 			</address>
 		</aside>
 		<nav class="legal">

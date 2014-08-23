@@ -15,6 +15,7 @@
 
 	require_once( 'external/starkers-utilities.php' );
 
+
 	/* Theme specific settings
 	================================================== */
 	
@@ -161,11 +162,11 @@
 	}
 
 
-	/* Twitter URL user area
+	/* Campos personalizados para usuarios
 	================================================== */
 
 	function fb_add_custom_user_profile_fields( $user ) {
-?>
+	?>
 	<h3><?php _e('Información extra', 'your_textdomain'); ?></h3>
 	
 	<table class="form-table">
@@ -174,7 +175,7 @@
 				<label for="twitter"><?php _e('Twitter', 'your_textdomain'); ?>
 			</label></th>
 			<td>
-				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" placeholder="@usuario" /><br />
 				<span class="description"><?php _e('Introduce tu usuario de twitter.', 'your_textdomain'); ?></span>
 			</td>
 		</tr>
@@ -183,25 +184,96 @@
 				<label for="google_plus"><?php _e('Google Plus', 'your_textdomain'); ?>
 			</label></th>
 			<td>
-				<input type="text" name="google_plus" id="google_plus" value="<?php echo esc_attr( get_the_author_meta( 'google_plus', $user->ID ) ); ?>" class="regular-text" /><br />
+				<input type="text" name="google_plus" id="google_plus" value="<?php echo esc_attr( get_the_author_meta( 'google_plus', $user->ID ) ); ?>" class="regular-text" placeholder="" /><br />
 				<span class="description"><?php _e('Introduce tu url de autor de Google Plus.', 'your_textdomain'); ?></span>
 			</td>
 		</tr>
+		<tr>
+			<th>
+				<label for="direccion_postal"><?php _e('Dirección Postal', 'your_textdomain'); ?>
+			</label></th>
+			<td>
+				<input type="text" name="direccion_postal" id="direccion_postal" value="<?php echo esc_attr( get_the_author_meta( 'direccion_postal', $user->ID ) ); ?>" class="regular-text" placeholder="Calle Zurita, 17, 28012 Madrid" /><br />
+				<span class="description"><?php _e('Introduce la dirección postal.', 'your_textdomain'); ?></span>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<label for="telefono"><?php _e('Teléfono', 'your_textdomain'); ?>
+			</label></th>
+			<td>
+				<input type="text" name="telefono" id="telefono" value="<?php echo esc_attr( get_the_author_meta( 'telefono', $user->ID ) ); ?>" class="regular-text" placeholder="678 12 34 56" /><br />
+				<span class="description"><?php _e('Teléfono de contacto.', 'your_textdomain'); ?></span>
+			</td>
+		</tr>
 	</table>
+	<?php }
 
-<?php }
+	function fb_save_custom_user_profile_fields( $user_id ) {
+		
+		if ( !current_user_can( 'edit_user', $user_id ) )
+			return FALSE;
+		
+		update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
+		update_usermeta( $user_id, 'google_plus', $_POST['google_plus'] );
+		update_usermeta( $user_id, 'direccion_postal', $_POST['direccion_postal'] );
+		update_usermeta( $user_id, 'telefono', $_POST['telefono'] );
+	}
 
-function fb_save_custom_user_profile_fields( $user_id ) {
-	
-	if ( !current_user_can( 'edit_user', $user_id ) )
-		return FALSE;
-	
-	update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
-	update_usermeta( $user_id, 'google_plus', $_POST['google_plus'] );
-}
+	add_action( 'show_user_profile', 'fb_add_custom_user_profile_fields' );
+	add_action( 'edit_user_profile', 'fb_add_custom_user_profile_fields' );
 
-add_action( 'show_user_profile', 'fb_add_custom_user_profile_fields' );
-add_action( 'edit_user_profile', 'fb_add_custom_user_profile_fields' );
+	add_action( 'personal_options_update', 'fb_save_custom_user_profile_fields' );
+	add_action( 'edit_user_profile_update', 'fb_save_custom_user_profile_fields' );
 
-add_action( 'personal_options_update', 'fb_save_custom_user_profile_fields' );
-add_action( 'edit_user_profile_update', 'fb_save_custom_user_profile_fields' );
+
+
+	/* Campos personalizados administrador
+	================================================== */
+	add_filter('admin_init', 'extra_fields_general_settings');
+
+	function extra_fields_general_settings(){
+    register_setting('general', 'direccion', 'esc_attr');
+    register_setting('general', 'telefono', 'esc_attr');
+    register_setting('general', 'codigo_postal', 'esc_attr');
+    register_setting('general', 'localidad', 'esc_attr');
+    register_setting('general', 'provincia', 'esc_attr');
+    register_setting('general', 'pais', 'esc_attr');
+    add_settings_field('direccion', '<label for="direccion">'.__('Dirección postal' , 'direccion' ).'</label>' , 'field_direccion', 'general');
+    add_settings_field('telefono', '<label for="telefono">'.__('Teléfono' , 'telefono' ).'</label>' , 'field_telefono', 'general');
+    add_settings_field('codigo_postal', '<label for="codigo_postal">'.__('Código Postal' , 'codigo_postal' ).'</label>' , 'field_codigo_postal', 'general');
+    add_settings_field('localidad', '<label for="localidad">'.__('Localidad' , 'localidad' ).'</label>' , 'field_localidad', 'general');
+    add_settings_field('provincia', '<label for="provincia">'.__('Provincia' , 'provincia' ).'</label>' , 'field_provincia', 'general');
+    add_settings_field('pais', '<label for="pais">'.__('País' , 'pais' ).'</label>' , 'field_pais', 'general');
+	}
+	 
+	function field_direccion(){
+	    $value = get_option( 'direccion', '' );
+	    echo '<input type="text" id="direccion" name="direccion" value="' . $value . '" class="regular-text" placeholder="Calle Zurita, 17, 28012 Madrid"/>';
+	}
+
+	function field_telefono(){
+	    $value = get_option( 'telefono', '' );
+	    echo '<input type="text" id="telefono" name="telefono" value="' . $value . '" class="regular-text" placeholder="000 00 00 00"/>';
+	}
+
+	function field_codigo_postal(){
+	    $value = get_option( 'telefono', '' );
+	    echo '<input type="text" id="codigo_postal" name="codigo_postal" value="' . $value . '" class="regular-text" placeholder="03590"/>';
+	}
+
+	function field_localidad(){
+	    $value = get_option( 'localidad', '' );
+	    echo '<input type="text" id="localidad" name="localidad" value="' . $value . '" class="regular-text" placeholder="Altea"/>';
+	}
+
+	function field_provincia(){
+	    $value = get_option( 'provincia', '' );
+	    echo '<input type="text" id="provincia" name="provincia" value="' . $value . '" class="regular-text" placeholder="Alicante"/>';
+	}
+
+	function field_pais(){
+	    $value = get_option( 'pais', '' );
+	    echo '<input type="text" id="pais" name="pais" value="' . $value . '" class="regular-text" placeholder="España"/>';
+	}
+

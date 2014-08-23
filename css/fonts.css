@@ -84,7 +84,7 @@
 
 }
 
-[class^="icon"], [class*=" icon"] {
+.icon {
 	font-family: 'podemos';
 	speak: none;
 	font-style: normal;
