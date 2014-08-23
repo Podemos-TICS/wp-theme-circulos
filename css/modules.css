@@ -266,6 +266,23 @@
 	font-family: 'open_sans-italic';
 }
 
+.post_author figure{
+	float: left;
+   width:70px;
+   height:70px;
+   background: url('../img/thumbnail_person.jpg') no-repeat center;
+   background-size: 100%;
+   border-radius: 35px;
+   overflow: hidden;
+}
+
+.post_author figure img{
+   width:70px;
+   height:70px;
+	border-radius: 35px;
+	margin: 0 10px 10px 0;
+} 
+
 .post_author h4{
 	margin-right: 20px;
 }
@@ -303,14 +320,6 @@
 	font-size: 16px;
 	position: relative;
 	top: 29px;
-}
-
-.post_author img{
-	border-radius: 48px;
-	float: left;
-	margin: 0 10px 10px 0;
-	width: 70px;
-	height: 70px;
 }
 
 /* 
