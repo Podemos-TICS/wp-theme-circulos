@@ -29,16 +29,26 @@
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
-	/* Scripts
+	/* Enqueue Styles & Scripts
 	================================================== */
 
 	function starkers_script_enqueuer() {
 		wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 		wp_enqueue_script( 'site' );
 
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/css/main.css', '', '', 'screen' );
-        wp_enqueue_style( 'screen' );
-	}	
+		wp_register_style( 'reset', get_stylesheet_directory_uri().'/css/reset.css', '', '', 'screen' );
+        wp_enqueue_style( 'reset' );
+		wp_register_style( 'common', get_stylesheet_directory_uri().'/css/common.css', '', '', 'screen' );
+        wp_enqueue_style( 'common' );
+		wp_register_style( 'fonts', get_stylesheet_directory_uri().'/css/fonts.css', '', '', 'screen' );
+        wp_enqueue_style( 'fonts' );
+		wp_register_style( 'layout', get_stylesheet_directory_uri().'/css/layout.css', '', '', 'screen' );
+        wp_enqueue_style( 'layout' );
+		wp_register_style( 'pre-header', get_stylesheet_directory_uri().'/css/pre-header.css', '', '', 'screen' );
+        wp_enqueue_style( 'pre-header' );
+		wp_register_style( 'modules', get_stylesheet_directory_uri().'/css/modules.css', '', '', 'screen' );
+        wp_enqueue_style( 'modules' );
+	}
 
 	/* Comments
 	================================================== */
