@@ -18,8 +18,15 @@
   <?php } elseif (is_single()) { ?> 
   <meta name="description" content="<?php echo get_the_excerpt(); ?>" />
   <?php } ?> 
-
-  <meta name="keywords" content="" />
+  <?php
+      $postTags = get_the_tags();
+      $tagNames = array();
+      foreach($postTags as $tag)
+      {
+          $tagNames[] = $tag->name;
+      }
+  ?>
+  <meta name="keywords" content="<?php echo implode($tagNames,", "); ?>" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />

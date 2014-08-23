@@ -11,20 +11,18 @@
 
 #main_content{}
 
-#main_footer{}
-
 #sidebar{
   width: 320px;
   margin: 0px 0 0 670px;
   padding: 20px 10px 0;
 }
 
-#post_detail .post{
-width: 650px;
-float: left;
-margin: 20px 0px 20px 10px;
-border-right: 1px solid #f2f2f2;
-padding: 0 20px 0 0;
+#detail .post{
+  width: 650px;
+  float: left;
+  margin: 20px 0px 20px 10px;
+  border-right: 1px solid #f2f2f2;
+  padding: 0 20px 0 0;
 }
 
 .container{

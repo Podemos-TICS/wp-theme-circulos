@@ -68,6 +68,20 @@
 	 
 	add_filter( "the_excerpt", "add_excerpt_class" );
 
+	 
+	/* Excerpt Count
+	================================================== */
+
+	function get_excerpt($count){  
+	    $permalink = get_permalink($post->ID);
+	    $excerpt = get_the_content(); 
+	    $excerpt = strip_tags($excerpt);
+	    $excerpt = substr($excerpt, 0, $count);
+	    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+	    //$excerpt = $excerpt.'... <a href="'.$permalink.'">leer mas</a>';
+	    return $excerpt;
+	}
+
 	/* Get THUMB URL
 	================================================== */
 	
@@ -95,8 +109,10 @@
 	/* Custom Image Size
 	================================================== */
 		
-	add_image_size( 'last_post', 466, 254 ); // Hard Crop Mode
-	add_image_size( 'post', 629, 344 ); // Hard Crop Mode
+	add_image_size( 'last_post', 466, 254, true ); // HOME LAST POST
+	add_image_size( 'post', 629, 343, true ); // POST DETAIL
+	add_image_size( 'organization', 240, 240, true ); // ORGANIZATION DEAIL
+	add_image_size( 'even_list', 300, 164, true ); // Hard Crop Mode
 
 	/* Sidebar
 	================================================== */
@@ -133,11 +149,6 @@
 		// return the $classes array
 		return $classes;
 	}
-
-
-
-
-
 
 
 	/* Twitter URL user area

@@ -25,30 +25,30 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon.phone:before {
 	content: "\e608";
-}
-.icon.envelope:before {
-	content: "\e609";
 }
 .icon.location:before {
 	content: "\e60a";
 }
-.icon.hora:before,
-#comments ol time a:before {
+.icon.clock:before {
 	content: "\e60b";
 }
-.icon.fecha:before {
+.icon.date:before {
 	content: "\e600";
 }
-.icon.categoria:before {
+.icon.category:before {
 	content: "\e60c";
 }
-.icon.comisiones:before {
+.icon.comission:before {
 	content: "\e601";
 }
-.icon.colabora:before {
+.icon.cooperate:before {
 	content: "\e60d";
+}
+.icon.url:before {
+	content: "\e607";
 }
 .icon.propuestas:before {
 	content: "\e602";
@@ -65,5 +65,6 @@
 .icon.rss:before {
 	content: "\e606";
 }
-
-
+.icon.mail:before {
+	content: "\e60e";
+}

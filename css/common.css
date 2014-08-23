@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 p { 
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
 }
 
 a{
@@ -64,14 +64,14 @@ a{
   text-align: center;
   text-transform: uppercase;
   font-weight: 800;
-  margin: 15px auto;
+  margin: 55px auto 15px;
 }
 
 .module_title,
 .widget_title,
 #reply-title{
   font-size: 1.3em;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
@@ -81,7 +81,7 @@ a{
 .button{
   background-color: #4B244C;
   color: #fff;
-  font-weight: 800;
+  font-weight: 600;
   display: block;
   border-bottom: 4px solid #391D3A;
   padding: 15px 10px;
@@ -101,6 +101,14 @@ a{
 
 .button:hover{
   background-color: #391D3A;
+}
+
+/* #IMAGES
+================================================== */
+
+.post header figure{
+  background: url("../img/thumbnail.jpg") no-repeat center;
+  background-size: 100%;
 }
 
 /* #HELP CLASSES
