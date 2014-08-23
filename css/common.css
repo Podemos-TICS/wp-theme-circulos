@@ -14,7 +14,7 @@
 /* #COMMON
 ================================================== */
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'open_sans-regular', sans-serif;
   font-size: 1em;
   color: #333;
 }
@@ -37,19 +37,21 @@ ol{
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-weight: normal;
+  font-family: 'open_sans-bold';
   color: #612D62;
 }
 
 p { 
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
   margin: 0 0 10px 0;
 }
 
 a{
   text-decoration: none;
   color: #612D62;
+}
+
+strong{
+  font-family: 'open_sans-bold';
 }
 
 .bloquote{
@@ -63,7 +65,7 @@ a{
   display: block;
   text-align: center;
   text-transform: uppercase;
-  font-weight: 800;
+  font-family: 'open_sans-bold';
   margin: 55px auto 15px;
 }
 
@@ -71,7 +73,7 @@ a{
 .widget_title,
 #reply-title{
   font-size: 1.3em;
-  font-weight: 600;
+  font-family: 'open_sans-semibold';
   margin-bottom: 10px;
 }
 
@@ -81,7 +83,7 @@ a{
 .button{
   background-color: #4B244C;
   color: #fff;
-  font-weight: 600;
+  font-family: 'open_sans-semibold';
   display: block;
   border-bottom: 4px solid #391D3A;
   padding: 15px 10px;
