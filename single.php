@@ -35,7 +35,6 @@
 					<time datetime="<?php the_time( 'Y/m/d g:i:s A' ); ?>" pubdate><?php the_date( 'j \d\e F Y'); ?></time>
 				</aside>
 				<div class="social_share module"></div>
-				<div class="excerpt module"><?php  the_excerpt(); ?></div>				
 				<div class="post_text module" itemprop="text">
 					<?php the_content(); ?>	
 				</div>

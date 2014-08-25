@@ -163,7 +163,7 @@
 
 .call_to_action{
 	text-align: center;
-	margin: 15px 0;
+	margin: 55px 0 0;
 }
 
 .call_to_action .circulo {
@@ -233,8 +233,17 @@
 	position: relative;
 }
 
+.last_post h2 {
+	margin-bottom: 10px;
+}
+
+.last_post h2 a{
+	height: 150px;
+}
+
 .last_post .post .post_author{
-   padding:0;
+   padding: 10px 0;
+   height: 60px;
 } 
 
 .last_post .post .post_author figure,
@@ -249,7 +258,7 @@
 }
 
 .last_post .post .post_author time{
-	top: 10px;
+	top: 20px;
 } 
 
 /* 
@@ -315,6 +324,7 @@
 .post_author{
 	padding: 20px 0;
 	position: relative;
+	height: 110px;
 }
 
 .post_author figure,
@@ -348,14 +358,14 @@
 }
 
 .post_author h4 a{
-	color: #bebebe;
+	color: #A2A2A2;
 	font-family: 'open_sans-italic';
 	line-height: 70px;
 	margin-left: 10px;
 }
 
 .post_author .twitter a::before{
-	color: #bebebe;
+	color: #A2A2A2;
 	font-size: 21px;
 	margin-right: 3px;
 	font-style: normal;
@@ -377,7 +387,7 @@
 }
 
 .post_author time{
-	color: #bebebe;
+	color: #A2A2A2;
 	font-family: 'open_sans-italic';
 	font-size: 16px;
 	position: absolute;
@@ -648,8 +658,8 @@ border-bottom: none;
 
 .last_persons .person{
 	padding: 20px 0;
-	margin: 0 28px;
-	width: 190px;
+	margin: 0 8px;
+	width: 230px;
 	display: inline-block;
 	vertical-align: top;
 	height: 510px;
@@ -818,7 +828,7 @@ border-bottom: none;
 }
 
 #main_footer .contact_info .icon::before {
-	color:#bebebe;
+	color:#A2A2A2;
 }
 
 .contact_info address span,
@@ -897,4 +907,55 @@ border-bottom: none;
 #main_footer nav a:hover {
 	color: #FFF;
 }
+
+
+/* 
+*   FORMULARIO CONTACTO
+* ============================ */
+
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form textarea{
+	border: 1px solid #DADADA;
+	display: block;
+	width: 100%;
+	border:none;
+	background: #f5f5f5;
+	padding: 15px
+}
+
+.wpcf7-form input,
+.wpcf7-form textarea{
+	border:none;
+	font-size: 1.1em
+}
+
+.wpcf7-form-control-wrap {
+    display: block !important;
+}
+.wpcf7-not-valid-tip {
+    background: #C90F0F;
+    color: #fff !important;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.wpcf7-mail-sent-ok {
+	background: #579da5;
+	border: 0px !important;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	padding: 10px !important;
+}
+
+.wpcf7-form.sent > p {
+	display: none;
+}
+
+.wpcf7-form input[type="submit"]{
+
+}
+
 

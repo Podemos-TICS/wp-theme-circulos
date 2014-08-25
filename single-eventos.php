@@ -1,5 +1,6 @@
 <?php
 /**
+ *  The Template for displaying all single events
  *
  * Please see /external/starkers-utilities.php for info on Starkers_Utilities::get_template_parts()
  *

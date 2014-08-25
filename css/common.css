@@ -81,7 +81,8 @@ strong{
 /* #BUTTONS
 ================================================== */
 
-.button{
+.button,
+.wpcf7-form input[type="submit"]{
   background-color: #4B244C;
   color: #fff;
   font-family: 'open_sans-semibold';
@@ -102,7 +103,8 @@ strong{
 }
 
 
-.button:hover{
+.button:hover,
+.wpcf7-form input[type="submit"]:hover{
   background-color: #391D3A;
 }
 

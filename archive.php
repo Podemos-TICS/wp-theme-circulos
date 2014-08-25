@@ -22,28 +22,43 @@
 		<?php if ( have_posts() ): ?>
 
 		<?php if ( is_day() ) : ?>
-		<h2>Archive: <?php echo  get_the_date( 'D M Y' ); ?></h2>							
+		<h2>Publicaciones: <?php echo  get_the_date( 'D M Y' ); ?></h2>							
 		<?php elseif ( is_month() ) : ?>
-		<h2>Archive: <?php echo  get_the_date( 'M Y' ); ?></h2>	
+		<h2>Publicaciones: <?php echo  get_the_date( 'M Y' ); ?></h2>	
 		<?php elseif ( is_year() ) : ?>
-		<h2>Archive: <?php echo  get_the_date( 'Y' ); ?></h2>								
+		<h2>Publicaciones: <?php echo  get_the_date( 'Y' ); ?></h2>								
 		<?php else : ?>
-		<h2>Archive</h2>	
+		<h2>Publicaciones</h2>	
 		<?php endif; ?>
 
-		<ol>
+		<section class="last_post">
+		<h3 class="section_title">Resultados para '<?php echo get_search_query(); ?>'</a></h3>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<li>
-				<article>
-					<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-					<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-					<?php the_content(); ?>
+				<article class="post" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+					<header>
+						<figure><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="nofollow"><?php echo get_the_post_thumbnail($post_id, 'last_post')?></a></figure>
+						<?php $parentscategory ="";
+						foreach((get_the_category()) as $category) {
+						if ($category->category_parent == 0) {
+						$parentscategory .= '<a class="category" rel="category" href="' . get_category_link($category->cat_ID) . '" title="' . $category->name . '">' . $category->name . '</a>, ';
+						}	
+						}
+						echo substr($parentscategory,0,-2); ?>
+					</header>
+					<h2 itemprop="headline"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php echo max_title(70); ?></a></h2>
+					<aside class="post_author clearfix" itemscope itemtype="http://data-vocabulary.org/Person">
+						<?php if ( get_the_author_meta( 'twitter' ) ) : ?>
+						<figure itemprop="photo"><?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?></figure>
+						<h4 rel="author"><a target="_blank" title="Google Plus de <?php echo get_the_author() ; ?>" href="<?php the_author_meta( 'google_plus' ); ?>?rel=author" itemprop="contact"> de <span itemprop="name"><?php echo get_the_author() ; ?></span></a></h4>
+						<?php endif; ?>
+						<time datetime="<?php the_time( 'Y/m/d g:i:s A' ); ?>" pubdate><?php the_date( 'j \d\e F Y'); ?></time>
+					</aside>
+					<?php echo get_excerpt(160); ?>
 				</article>
-			</li>
 		<?php endwhile; ?>
-		</ol>
+		</section>
 		<?php else: ?>
-		<h2>No posts to display</h2>	
+		<h3 class="section_title">No hay contenido</a></h3>
 		<?php endif; ?>
 
 	</div>

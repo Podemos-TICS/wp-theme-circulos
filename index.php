@@ -32,7 +32,7 @@
 					}
 					echo substr($parentscategory,0,-2); ?>
 				</header>
-				<h2 itemprop="headline"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+				<h2 itemprop="headline"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php echo max_title(70); ?></a></h2>
 				<aside class="post_author clearfix" itemscope itemtype="http://data-vocabulary.org/Person">
 					<?php if ( get_the_author_meta( 'twitter' ) ) : ?>
 					<figure itemprop="photo"><?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?></figure>
@@ -66,11 +66,11 @@
 						<meta itemprop="startDate" content="<?php echo do_shortcode('[ct id="_ct_datepicker_53f20ab478c53"]'); ?>T<?php echo do_shortcode('[ct id="T_ct_selectbox_53f217fd44188"]'); ?>:<?php echo do_shortcode('[ct id="ct_Minutos_selectbox_13e9"]'); ?>"> 
 						<meta itemprop="endDate" content="<?php echo do_shortcode('[ct id="_ct_datepicker_53f20b23cbbf7"]'); ?>T<?php echo do_shortcode('[ct id="_ct_selectbox_53f21916e6093"]'); ?>:<?php echo do_shortcode('[ct id="_ct_selectbox_53f72ffc71339"]'); ?>"> 
 						<time class="icon date"><?php echo do_shortcode('[ct id="_ct_datepicker_53f20ab478c53"]'); ?></time>
-						<time class="icon clock"><?php echo do_shortcode('[ct id="T_ct_selectbox_53f217fd44188"]'); ?>:<?php echo do_shortcode('[ct id="ct_Minutos_selectbox_13e9"]'); ?>-<?php echo do_shortcode('[ct id="_ct_selectbox_53f21916e6093"]'); ?>:<?php echo do_shortcode('[ct id="_ct_selectbox_53f72ffc71339"]'); ?></time>
+						<time class="icon clock"><?php echo do_shortcode('[ct id="_ct_selectbox_53f217fd44188"]'); ?>:<?php echo do_shortcode('[ct id="ct_Minutos_selectbox_13e9"]'); ?>-<?php echo do_shortcode('[ct id="_ct_selectbox_53f21916e6093"]'); ?>:<?php echo do_shortcode('[ct id="_ct_selectbox_53f72ffc71339"]'); ?></time>
 						<a target="_blank" class="icon url" itemprop="url" href="<?php echo do_shortcode('[ct id="_ct_text_53f44ef41f8ac"]'); ?>">Mapa</a>  
 						<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 							<span class="icon location" itemprop="streetAddress"><?php echo do_shortcode('[ct id="_ct_text_53f5e53e10752"]'); ?>, <?php echo do_shortcode('[ct id="_ct_text_53f5e6aa73dd1"]'); ?></span>
-							<span itemprop="postalCode">03590</span><span itemprop="addressLocality">, <?php echo do_shortcode('[ct id="_ct_text_53f60f86a2acc"]'); ?></span><span itemprop="addressRegion">, <?php echo do_shortcode('[ct id="_ct_text_53f733dcca2df"]'); ?></span>
+							<span itemprop="postalCode"><?php echo do_shortcode('[ct id="_ct_text_53f75147d88ac"]'); ?></span><span itemprop="addressLocality">, <?php echo do_shortcode('[ct id="_ct_text_53f60f86a2acc"]'); ?></span><span itemprop="addressRegion">, <?php echo do_shortcode('[ct id="_ct_text_53f733dcca2df"]'); ?></span>
 							<span itemprop="addressCountry"><?php echo do_shortcode('[ct id="ct_Pas_text_59c2"]'); ?></span>
 						</address>
 					</aside>
@@ -81,7 +81,7 @@
 
 		<section class="last_persons clearfix">
 			<h3 class="section_title"><a href="/personas" title="Todos nosotros">Personas públicas</a></h3>
-				<?php $args = array( 'post_type' => 'contactos', 'posts_per_page' => 4 ); ?>
+				<?php $args = array( 'post_type' => 'personas', 'posts_per_page' => 4 ); ?>
 				<?php $loop = new WP_Query( $args ); ?>
 				<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 				<article class="person" itemscope itemtype="http://schema.org/Person">

@@ -15,7 +15,6 @@
 
 	require_once( 'external/starkers-utilities.php' );
 
-
 	/* Theme specific settings
 	================================================== */
 	
@@ -71,7 +70,7 @@
 	/* Excerpt Class
 	================================================== */
 
-	function add_excerpt_class( $excerpt )
+	function add_excerpt_class($excerpt)
 	{
 	    $excerpt = str_replace( "<p", "<p itemprop=\"alternativeHeadline\" class=\"excerpt\"", $excerpt );
 	    return $excerpt;
@@ -83,14 +82,30 @@
 	/* Excerpt Count
 	================================================== */
 
-	function get_excerpt($count){  
+	function get_excerpt($excerpt_count){  
 	    $permalink = get_permalink($post->ID);
-	    $excerpt = get_the_content(); 
+	    $excerpt = get_the_excerpt(); 
+		if (empty($excerpt)) {$excerpt = get_the_content(); };
 	    $excerpt = strip_tags($excerpt);
-	    $excerpt = substr($excerpt, 0, $count);
+	    $excerpt = substr($excerpt, 0, $excerpt_count);
 	    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-	    //$excerpt = $excerpt.'... <a href="'.$permalink.'">leer mas</a>';
+		$excerpt = $excerpt.'...';
+		$excerpt_count=0;
 	    return $excerpt;
+	}
+
+	/* Title Count
+	================================================== */
+
+	function max_title($title_count){  
+	    $permalink = get_permalink($post->ID);
+	    $the_title = get_the_title(); 
+	    $the_title = strip_tags($the_title);
+	    $the_title = substr($the_title, 0, $title_count);
+	    $the_title = substr($the_title, 0, strripos($the_title, " "));
+		$the_title = $the_title.'...';
+		$title_count=0;
+	    return $the_title;
 	}
 
 	/* Get THUMB URL
@@ -225,8 +240,6 @@
 
 	add_action( 'personal_options_update', 'fb_save_custom_user_profile_fields' );
 	add_action( 'edit_user_profile_update', 'fb_save_custom_user_profile_fields' );
-
-
 
 	/* Campos personalizados administrador
 	================================================== */

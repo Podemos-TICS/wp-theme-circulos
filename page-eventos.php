@@ -12,8 +12,8 @@
 <section id="main_content" role="main">
 		<div class="container">
 			<section class="last_events">
-				<h3 class="section_title"><a href="/blog" title="Últimos eventos">Últimos Eventos</a></h3>
-				<?php $args = array( 'post_type' => 'eventos', 'posts_per_page' => 10 ); ?>
+				<h3 class="section_title">Últimos Eventos</h3>
+				<?php $args = array( 'post_type' => 'eventos', 'meta_key' => '_ct_datepicker_53f20ab478c53' , 'orderby' => 'meta_value' , 'order' => 'DESC' , 'posts_per_page' => 10 ); ?>
 				<?php $loop = new WP_Query( $args ); ?>
 				<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 				<article class="post event clearfix" itemscope itemtype="http://schema.org/Event">

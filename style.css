@@ -1,11 +1,17 @@
 /*
-Theme Name: 	WP Círculo Podemos
-Theme URI: 		http://oscarbustos.me
-Description: 	Theme para web personal de los círculos de Podemos
-Version: 		1.0
-Author: 		Óscar Bustos
-Author URI: 	http://oscarbustos.me
-Tags: 			starkers, naked, clean, basic
+Theme Name: Círculo Podemos
+Theme URI: http://oscarbustos.me
+Author: Óscar Bustos
+Author URI: http://oscarbustos.me
+Description: Tema para Wordpress dedicado a los círculos de Podemos
+Version: 1.0
+Licencia: GNU General Public License v2 or later
+Licencia URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: starkers, naked, clean, basic
+Text Domain: theme_circulo_podemos
+
+Este tema, como Wordpress, está bajo licencia GPL.
+
 */
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
@@ -15,6 +21,7 @@ Tags: 			starkers, naked, clean, basic
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+ 
 
  *{
   -webkit-font-smoothing: antialiased;
