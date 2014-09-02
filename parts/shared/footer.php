@@ -6,8 +6,7 @@
 				<span class="icon location" itemprop="streetAddress"><?php echo get_option( 'direccion' ); ?></span>
 				<p><span itemprop="addressLocality"><?php echo get_option( 'localidad' ); ?></span><span itemprop="addressRegion">, <?php echo get_option( 'provincia' ); ?></span></p>
 				<p><span itemprop="postalCode"><?php echo get_option( 'codigo_postal' ); ?></span> - <span itemprop="addressCountry"><?php echo get_option( 'pais' ); ?></span></p>
-				<a class="icon mail" href="mailto:<?php bloginfo( 'admin_email' ); ?>" itemprop="email"><?php bloginfo( 'admin_email' ); ?></a>
-				<a class="icon url" href="/contactar" itemprop="email">Contactar</a>
+				<a class="icon mail" href="/contactar" itemprop="email">Contactar</a>
 				<!--<span class="icon phone" itemprop="telephone"><?php echo get_option( 'telefono' ); ?></span>-->
 			</address>
 		</aside>

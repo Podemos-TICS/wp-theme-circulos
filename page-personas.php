@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Contactos 
+ * Template Name: Personas 
  *
  * @package 	WordPress
  * @subpackage 	Starkers
