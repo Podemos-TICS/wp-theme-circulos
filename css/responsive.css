@@ -1,0 +1,158 @@
+/* #MEDIA QUERYS
+================================================== */
+
+@media (max-width: 63.9375em) {
+
+}
+
+@media (max-width: 55em) {
+
+  .container {
+    width: 100%;
+  }
+  .call_to_action > div {
+    margin: 0 5px;
+  }
+
+  .call_to_action .circulo {
+    height: 130px;
+     line-height: 140px;
+     width: 130px;
+
+  }
+
+  .last_post .post,
+  .last_organizations .organization {
+    width: 44.2%;
+  }
+
+  .last_post header figure a {
+    position: relative;
+  }
+
+  .last_post header figure,
+  .last_post header figure img {
+    height: auto;
+    width: 100%;
+  }
+
+  .last_post header figure img {
+    display: block;
+    height: auto;
+  }
+
+  .last_post h2 a {
+    font-size: 30px;
+    height: auto;
+  }
+
+  .last_events .post.event {
+    height: auto;
+  }
+
+  .last_events .post.event .event_info {
+    display: block;
+    margin: 30px 0 0 0;
+  }
+
+  .event_info {
+    text-align: center;
+  }
+
+  #detail .post,
+  #sidebar {
+    display: block;
+    float: none;
+    margin: 0;
+    padding: 0 5px;
+    width: 100%;
+  }
+
+  #sidebar {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  #detail .post header figure img,
+  #detail .post header figure {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 47.9375em) {
+
+  #searchform,
+  #pre_header {
+    display: none;
+  }
+
+  .last_post .post,
+  .last_organizations .organization {
+    width: 44.47%;
+  }
+
+  .post h2 {
+    line-height: 40px;
+  }
+
+  .call_to_action .circulo {
+    font-size: 50px;
+    height: 110px;
+    line-height: 120px;
+    width: 110px;
+  }
+
+  .call_to_action > div {
+    width: 40%;
+  }
+
+  #menu-select-menu{
+    display: block;
+  }
+
+  .main_nav{
+    display: none;
+  }
+
+
+}
+
+@media (max-width: 38.75em) {
+  .last_post .post,
+  .last_organizations .organization {
+    height: auto;
+    margin: 0 0 30px;
+     width: 100%;
+  }
+  .last_events .post.event figure {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+
+  .last_events .post.event h2,
+  .last_events .post.event .event_info,
+  .last_events .post.event .even_text {
+    margin: 5px 0;
+  }
+
+  .last_events .post.event .event_info {
+    text-align: center;
+  }
+
+  .post_author .twitter {
+    display: none;
+  }
+
+
+}
+
+@media (max-width: 30em) {
+
+}
