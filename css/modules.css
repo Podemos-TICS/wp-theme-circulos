@@ -85,7 +85,6 @@
 	background-color: #632764;
 }
 
-
 /*
 *   SUBMENU
 * ============================ */
@@ -131,6 +130,17 @@
 
 .sub-menu .sub-menu{
 	display: none !important;
+}
+
+
+/*
+*   SELECT MENU
+* ============================ */
+
+#menu-select-menu{
+	display: none;
+	width: 100%;
+
 }
 
 
@@ -575,13 +585,17 @@ border-bottom: none;
 *   LAST ORGANIZATIONS
 * ============================ */
 
+.last_organizations{
+	text-align: center;
+}
 
 .last_organizations .organization{
 	padding: 20px 0;
 	margin: 0 30px;
 	width: 440px;
 	text-align: center;
-	float: left;
+	display: inline-block;
+	vertical-align: top;
 	height: 510px;
 }
 

@@ -20,7 +20,55 @@
 
 	add_theme_support('post-thumbnails');
 
-	register_nav_menus(array('primary' => 'Primary Navigation'));
+      register_nav_menus(
+        array(
+          'primary' => 'Primary Navigation',
+          'select-menu' => 'Select Menu',
+        )
+      );
+
+
+      /* Selected menu
+        ================================================== */
+
+      function wp_nav_menu_select( $args = array() ) {
+
+          $defaults = array(
+              'theme_location' => '',
+              'menu_class' => 'select-menu',
+          );
+
+          $args = wp_parse_args( $args, $defaults );
+
+          if ( ( $menu_locations = get_nav_menu_locations() ) && isset( $menu_locations[ $args['theme_location'] ] ) ) {
+              $menu = wp_get_nav_menu_object( $menu_locations[ $args['theme_location'] ] );
+
+              $menu_items = wp_get_nav_menu_items( $menu->term_id );
+              ?>
+                  <select id="menu-<?php echo $args['theme_location'] ?>" class="<?php echo $args['menu_class'] ?>">
+                      <option value=""><?php _e( 'Navigation' ); ?></option>
+                      <?php foreach( (array) $menu_items as $key => $menu_item ) : ?>
+                          <option value="<?php echo $menu_item->url ?>"><?php echo $menu_item->title ?></option>
+                      <?php endforeach; ?>
+                  </select>
+              <?php
+          }
+
+          else {
+              ?>
+                  <select class="menu-not-found">
+                      <option value=""><?php _e( 'Menu Not Found' ); ?></option>
+                  </option>
+              <?php
+          }
+
+      }
+
+
+
+
+
+
 
 
       /* Sidebar
@@ -65,8 +113,10 @@
 	    wp_enqueue_style('layout');
 	    wp_register_style('pre-header', get_stylesheet_directory_uri() . '/css/pre-header.css', '', '', 'screen');
 	    wp_enqueue_style('pre-header');
-	    wp_register_style('modules', get_stylesheet_directory_uri() . '/css/modules.css', '', '', 'screen');
-	    wp_enqueue_style('modules');
+          wp_register_style('modules', get_stylesheet_directory_uri() . '/css/modules.css', '', '', 'screen');
+          wp_enqueue_style('modules');
+          wp_register_style('responsive', get_stylesheet_directory_uri() . '/css/responsive.css', '', '', 'screen');
+          wp_enqueue_style('responsive');
 	}
 
 	/* Comments
@@ -883,8 +933,3 @@
       }
 
       add_action('save_post', 'customtypes_save_meta_box_data_comision');
-
-
-
-
-

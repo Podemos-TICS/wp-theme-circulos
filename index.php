@@ -71,7 +71,7 @@
 	<a href="/eventos" class="button" title="Ver más eventos">Ver más eventos</a>
 	<section class="last_persons clearfix">
 	<h3 class="section_title"><a href="/personas" title="Todos nosotros">Personas públicas</a></h3>
-	<?php $args = array( 'post_type' => 'persona', 'posts_per_page' => 4 ); ?>
+	<?php $args = array( 'post_type' => 'persona', 'posts_per_page' => 3 ); ?>
 	<?php $loop = new WP_Query( $args ); ?>
 	<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 	<article class="person" itemscope itemtype="http://schema.org/Person">
