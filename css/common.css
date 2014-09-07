@@ -1,0 +1,149 @@
+/*
+  PROJECT: CÍRCULO PODEMOS
+  FIRST UPDATE: 13.08.2014
+*/
+
+
+/* TABLE OF CONTENTS
+==================================================
+  #COMMON
+  #TYPOGRAPHY
+  #HELP CLASSES
+
+
+/* #COMMON
+================================================== */
+body {
+  font-family: 'open_sans-regular', sans-serif;
+  font-size: 1em;
+  color: #333;
+}
+
+li{
+  list-style: none;
+}
+
+ol{
+  list-style-type:decimal;
+}
+
+.module{
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* #TYPOGRAPHY
+================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: 'open_sans-bold';
+  color: #612D62;
+  font-weight: normal;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+a{
+  text-decoration: none;
+  color: #612D62;
+}
+
+strong{
+  font-family: 'open_sans-bold';
+}
+
+.bloquote{
+  font-style: italic;
+}
+
+.section_title,
+.section_title a{
+  font-size: 35px;
+  color: #612D62;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'open_sans-bold';
+  margin: 55px auto 15px;
+}
+
+.module_title,
+.widget_title,
+#reply-title{
+  font-size: 1.3em;
+  font-family: 'open_sans-semibold';
+  margin-bottom: 10px;
+}
+
+/* #BUTTONS
+================================================== */
+
+.page_nav a,
+.button,
+input[type="submit"]{
+  background-color: #4B244C;
+  color: #fff;
+  font-family: 'open_sans-semibold';
+  display: block;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 4px solid #391D3A;
+  padding: 15px 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px auto;
+  border-radius: 3px;
+  width: 260px;
+  -webkit-transition: background-color 200ms ease-in-out;
+  -moz-transition: background-color 200ms ease-in-out;
+  -ms-transition: background-color 200ms ease-in-out;
+  -o-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+}
+
+.page_nav a:hover,
+.button:hover,
+input[type="submit"]:hover{
+  background-color: #391D3A;
+}
+
+/* #IMAGES
+================================================== */
+
+.post header figure{
+  background: url("../img/thumbnail.jpg") no-repeat center;
+  background-size: 100%;
+}
+
+/* #HELP CLASSES
+================================================== */
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+* html .clearfix {
+  zoom: 1;
+}
+
+*:first-child+html .clearfix {
+  zoom: 1;
+}
+
+.center{
+  text-align: center;
+}
+
+.right{
+  text-align: right;
+}
