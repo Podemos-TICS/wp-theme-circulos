@@ -136,3 +136,20 @@
 .icon.mail:before {
   content: "\e60e";
 }
+
+.icon.user:before {
+  content: "\e609";
+}
+
+.icon.diaspora{
+  background: url('../img/ico-diaspora.png') no-repeat center;
+}
+.icon.loomio{
+  background: url('../img/ico-loomio.png') no-repeat center;
+}
+.icon.reddit{
+  background: url('../img/ico-reddit.png') no-repeat center;
+}
+.icon.ene_uno{
+  background: url('../img/ico-ene_uno.png') no-repeat center;
+}

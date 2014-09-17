@@ -14,7 +14,7 @@
 ?>
 <div id="comments">
 	<?php if ( post_password_required() ) : ?>
-	<p>This post is password protected. Enter the password to view any comments</p>
+	<p>Este post está protegido</p>
 </div>
 
 	<?php
@@ -42,9 +42,9 @@
 		 */
 		elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-	
-	<p>Comments are closed</p>
-	
+
+	<p>Los comentarios están cerrados</p>
+
 	<?php endif; ?>
 
 	<?php comment_form(); ?>

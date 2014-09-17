@@ -17,10 +17,16 @@
 			<article class="organization" itemscope itemtype="http://schema.org/NGO">
 				<figure><?php echo get_the_post_thumbnail($post_id, 'organization')?></figure>
 				<h2><?php the_title(); ?></h2>
-				<aside class="social_profiles">
-					<a target="_blank" href="http://twitter.com/<?php echo get_post_meta($post->ID, 'twitter', true); ?>" class="icon twitter"></a>
-					<a target="_blank" href="<?php echo get_post_meta($post->ID, 'facebook', true); ?>" class="icon facebook"></a>
-				</aside>
+				<?php
+				$twitter =   get_post_meta($post->ID, 'twitter', true);
+				$facebook =   get_post_meta($post->ID, 'facebook', true);
+				$google_plus =   get_post_meta($post->ID, 'google_plus', true);
+				if ( ( $twitter ) || ($facebook) ) { ?>
+					<aside class="social_profiles">
+					<?php if ($twitter) { ?><a target="_blank" href="<?php echo $twitter  ?>" class="icon twitter"></a><?php  } ?>
+					<?php if ($facebook) { ?> <a target="_blank" href="<?php echo $facebook ?>" class="icon facebook"></a><?php  } ?>
+					</aside>
+				<?php  } ?>
 				<p class="excerpt"><?php echo get_the_excerpt(); ?></p>
 				<div class="text" itemprop="description">
 					<?php the_content(); ?>
@@ -35,7 +41,6 @@
 				</aside>
 				<?php comments_template( '', true ); ?>
 			</article>
-			<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/sidebar') ); ?>
 		</div>
 	<?php endwhile; ?>
 </section>

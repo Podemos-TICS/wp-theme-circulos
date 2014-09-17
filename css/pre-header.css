@@ -15,6 +15,12 @@
 	line-height: 20px;
 }
 
+#pre_header .logo-podemos img{
+	width: 80px;
+	position: relative;
+	top: 2px;
+}
+
 #pre_header nav li{
 	margin: 0 5px;
 }
@@ -37,7 +43,18 @@
 	color: #FFF;
 }
 
-
 #pre_header .rrss-podemos a{
-	font-size: 24px;
+	height: 27px;
+	width: 27px;
+	display: block;
+}
+
+#pre_header .rrss-podemos .twitter{
+	background: url('../img/ico_twitter.png') no-repeat;
+}
+#pre_header .rrss-podemos .fb{
+	background: url('../img/ico_fb.png') no-repeat;
+}
+#pre_header .rrss-podemos .youtube{
+	background: url('../img/ico_youtube.png') no-repeat;
 }

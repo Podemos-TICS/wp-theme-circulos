@@ -18,7 +18,6 @@
     height: 130px;
      line-height: 140px;
      width: 130px;
-
   }
 
   .last_post .post,
@@ -88,7 +87,8 @@
 @media (max-width: 47.9375em) {
 
   #searchform,
-  #pre_header {
+  #pre_header,
+  .login {
     display: none;
   }
 
@@ -149,6 +149,8 @@
   .post_author .twitter {
     display: none;
   }
+
+
 
 
 }

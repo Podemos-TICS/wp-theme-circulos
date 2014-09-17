@@ -25,10 +25,16 @@
 						<div class="contact_text" itemprop="description">
 							<?php echo excerpt_count(100); ?>
 						</div>
-						<aside class="social_profiles">
-							<a target="_blank" href="http://twitter.com/<?php echo get_post_meta($post->ID, 'twitter', true); ?>" class="icon twitter"></a>
-							<a target="_blank" href="<?php echo get_post_meta($post->ID, 'facebook', true); ?>" class="icon facebook"></a>
-						</aside>
+						<?php
+						$twitter =   get_post_meta($post->ID, 'twitter', true);
+						$facebook =   get_post_meta($post->ID, 'facebook', true);
+						$google_plus =   get_post_meta($post->ID, 'google_plus', true);
+						if ( ( $twitter ) || ($facebook) ) { ?>
+							<aside class="social_profiles">
+							<?php if ($twitter) { ?><a target="_blank" href="<?php echo $twitter  ?>" class="icon twitter"></a><?php  } ?>
+							<?php if ($facebook) { ?> <a target="_blank" href="<?php echo $facebook ?>" class="icon facebook"></a><?php  } ?>
+							</aside>
+						<?php  } ?>
 					</article>
 				<?php endwhile; ?>
 			</section>

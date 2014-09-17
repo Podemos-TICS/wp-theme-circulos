@@ -18,11 +18,17 @@
 				<figure><?php echo get_the_post_thumbnail($post_id, 'contact_face')?></figure>
 				<h3 itemprop="name"><?php echo get_post_meta($post->ID, 'nombre', true); ?> <?php echo get_post_meta($post->ID, 'apellidos', true); ?></h3>
 				<h2 itemprop="additionalName"><?php the_title(); ?></h2>
-				<aside class="social_profiles">
-					<a target="_blank" href="http://twitter.com/<?php echo get_post_meta($post->ID, 'twitter', true); ?>" class="icon twitter"></a>
-					<a target="_blank" href="<?php echo get_post_meta($post->ID, 'facebook', true); ?>" class="icon facebook"></a>
-					<a target="_blank" href="<?php echo get_post_meta($post->ID, 'google_plus', true); ?>" class="icon gplus"></a>
-				</aside>
+				<?php
+				$twitter =   get_post_meta($post->ID, 'twitter', true);
+				$facebook =   get_post_meta($post->ID, 'facebook', true);
+				$google_plus =   get_post_meta($post->ID, 'google_plus', true);
+				if ( ( $twitter ) || ($facebook) || ($google_plus) ) { ?>
+					<aside class="social_profiles">
+					<?php if ($twitter) { ?><a target="_blank" href="<?php echo $twitter  ?>" class="icon twitter"></a><?php  } ?>
+					<?php if ($facebook) { ?> <a target="_blank" href="<?php echo $facebook ?>" class="icon facebook"></a><?php  } ?>
+					<?php if ($google_plus) { ?><a target="_blank" href="<?php echo $google_plus ?>" class="icon gplus"></a><?php  } ?>
+					</aside>
+				<?php  } ?>
 				<p itemprop="alternativeHeadline" class="excerpt"><?php echo get_the_excerpt(); ?></p>
 				<div class="contact_text" itemprop="description">
 					<?php the_content(); ?>
@@ -37,7 +43,6 @@
 				</aside>
 				<?php comments_template( '', true ); ?>
 			</article>
-			<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/sidebar') ); ?>
 		</div>
 	<?php endwhile; ?>
 </section>

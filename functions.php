@@ -66,11 +66,6 @@
 
 
 
-
-
-
-
-
       /* Sidebar
       ================================================== */
 
@@ -91,8 +86,7 @@
 	/* Actions and Filters
 	  ================================================== */
 
-	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
-
+  add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
 
@@ -100,8 +94,8 @@
 	  ================================================== */
 
 	function starkers_script_enqueuer() {
-	    wp_register_script('site', get_template_directory_uri() . '/js/site.js', array('jquery'));
-	    wp_enqueue_script('site');
+          wp_register_script('site', get_template_directory_uri() . '/js/site.js', array('jquery'));
+          wp_enqueue_script('site');
 
 	    wp_register_style('reset', get_stylesheet_directory_uri() . '/css/reset.css', '', '', 'screen');
 	    wp_enqueue_style('reset');
@@ -118,6 +112,25 @@
           wp_register_style('responsive', get_stylesheet_directory_uri() . '/css/responsive.css', '', '', 'screen');
           wp_enqueue_style('responsive');
 	}
+
+
+      /* CSS Admin Hack
+        ================================================== */
+
+
+      add_action('admin_head', 'custom_css_admin');
+
+      function custom_css_admin() {
+        echo '<style>
+          #customtypes_sectionid input {
+            display: block;
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0 0 0;
+          }
+        </style>';
+      }
+
 
 	/* Comments
 	  ================================================== */
@@ -244,7 +257,7 @@
       }
 
       /* Campos personalizados para usuarios
-        ================================================== */
+        ==================================================
 
       function fb_add_custom_user_profile_fields($user) {
       ?>
@@ -254,8 +267,8 @@
           <tr>
               <th><label for="twitter"><?php _e('Twitter', 'your_textdomain'); ?></label></th>
               <td>
-                  <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr(get_the_author_meta('twitter', $user->ID)); ?>" class="regular-text" placeholder="usuario" /><br />
-                  <span class="description"><?php _e('Introduce el usuario de twitter.', 'your_textdomain'); ?></span>
+                  <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr(get_the_author_meta('twitter', $user->ID)); ?>" class="regular-text" placeholder="https://twitter.com/usuario" /><br />
+                  <span class="description"><?php _e('Introduce tu URL de twitter.', 'your_textdomain'); ?></span>
               </td>
               <th><label for="google_plus"><?php _e('Google Plus', 'your_textdomain'); ?></label></th>
               <td>
@@ -324,6 +337,7 @@
       add_action('personal_options_update', 'fb_save_custom_user_profile_fields');
       add_action('edit_user_profile_update', 'fb_save_custom_user_profile_fields');
 
+       */
 
       /* Custom Post Type Evento and Custom Fields
         ================================================== */
@@ -408,6 +422,20 @@
         echo '</label> ';
         echo '<input class="input-custom_type required" type="text" id="url_mapa" name="url_mapa" value="' . esc_attr($value) . '"  /><br>';
 
+        //Hora Inicio
+        $value = get_post_meta($post->ID, 'hora_inicio', true);
+        echo '<label class="label-custom_type" for="hora_inicio">';
+        _e('Hora de Inicio:  ', 'customtypes_textdomain');
+        echo '</label> ';
+        echo '<input class="input-custom_type required" type="text" id="hora_inicio" name="hora_inicio" value="' . esc_attr($value) . '"  /><br>';
+
+        //Hora Fin
+        $value = get_post_meta($post->ID, 'hora_fin', true);
+        echo '<label class="label-custom_type" for="hora_fin">';
+        _e('Hora de Fin:  ', 'customtypes_textdomain');
+        echo '</label> ';
+        echo '<input class="input-custom_type required" type="text" id="hora_fin" name="hora_fin" value="' . esc_attr($value) . '"  /><br>';
+
         //Direccion Postal
         $value = get_post_meta($post->ID, 'direccion_postal', true);
         echo '<label class="label-custom_type" for="direccion_postal">';
@@ -490,8 +518,26 @@
       $my_data = sanitize_text_field($_POST['url_mapa']);
       update_post_meta($post_id, 'url_mapa', $my_data);
 
+      //Hora Inicio
 
-      //URL Mapa
+      if (!isset($_POST['hora_inicio'])) {
+          return;
+      }
+
+      $my_data = sanitize_text_field($_POST['hora_inicio']);
+      update_post_meta($post_id, 'hora_inicio', $my_data);
+
+      //Hora Fin
+
+      if (!isset($_POST['hora_fin'])) {
+          return;
+      }
+
+      $my_data = sanitize_text_field($_POST['hora_fin']);
+      update_post_meta($post_id, 'hora_fin', $my_data);
+
+
+      //Dirección Postal
 
       if (!isset($_POST['direccion_postal'])) {
           return;
@@ -537,7 +583,7 @@
 
 
       /* Custom Post Type Persona and Custom Fields
-        ================================================== */
+        ==================================================
 
       function custom_post_type_persona() {
 
@@ -608,16 +654,16 @@
         //Usuario Twitter
         $value = get_post_meta($post->ID, 'twitter', true);
         echo '<label class="label-custom_type" for="twitter">';
-        _e('Usuario de Twitter:  ', 'customtypes_textdomain');
+        _e('URL de Twitter:  ', 'customtypes_textdomain');
         echo '</label> ';
-        echo '<input class="input-custom_type required" type="text" id="twitter" name="twitter" value="' . esc_attr($value) . '"  placeholder="podemos"/><br>';
+        echo '<input class="input-custom_type required" type="text" id="twitter" name="twitter" value="' . esc_attr($value) . '"  placeholder="https://twitter.com/usuario"/><br>';
 
         //Usuario Facebook
         $value = get_post_meta($post->ID, 'facebook', true);
         echo '<label class="label-custom_type" for="facebook">';
         _e('URL de perfil de Facebook:  ', 'customtypes_textdomain');
         echo '</label> ';
-        echo '<input class="input-custom_type required" type="text" id="facebook" name="facebook" value="' . esc_attr($value) . '"  placeholder="https://www.facebook.com/usuario"><br>';
+        echo '<input class="input-custom_type required" type="text" id="facebook" name="facebook" value="' . esc_attr($value) . '"  placeholder="https://www.facebook.com/grupo"><br>';
 
         //Usuario Google Plus
         $value = get_post_meta($post->ID, 'google_plus', true);
@@ -759,6 +805,8 @@
       add_action('save_post', 'customtypes_save_meta_box_data_persona');
 
 
+      Deshabiitado hasta decisión de asamblea */
+
 
 
 
@@ -834,9 +882,9 @@
         //Usuario Twitter
         $value = get_post_meta($post->ID, 'twitter', true);
         echo '<label class="label-custom_type" for="twitter">';
-        _e('Usuario de Twitter:  ', 'customtypes_textdomain');
+        _e('URL de Twitter:  ', 'customtypes_textdomain');
         echo '</label> ';
-        echo '<input class="input-custom_type required" type="text" id="twitter" name="twitter" value="' . esc_attr($value) . '"  placeholder="podemos"/><br>';
+        echo '<input class="input-custom_type required" type="text" id="twitter" name="twitter" value="' . esc_attr($value) . '"  placeholder="https://twitter.com/usuario"/><br>';
 
         //Grupo Facebook
         $value = get_post_meta($post->ID, 'grupo_facebook', true);
@@ -933,3 +981,13 @@
       }
 
       add_action('save_post', 'customtypes_save_meta_box_data_comision');
+
+
+
+      /* Páginas de opciones del theme
+        ================================================== */
+
+      if ( !function_exists( 'optionsframework_init' ) ) {
+          define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
+          require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+      }

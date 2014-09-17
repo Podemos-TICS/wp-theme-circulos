@@ -12,9 +12,9 @@
 		</nav>
 		<nav class="rrss-podemos">
 			<ul>
-				<li><a class="icon twitter" target="_blank" href="https://twitter.com/ahorapodemos" title="Perfil de Twitter de Podemos"></a></li>
-				<li><a class="icon facebook" target="_blank" href="https://www.facebook.com/pages/Podemos/269212336568846" title="Página de Facebook de Podemos"></a></li>
-				<li><a class="icon youtube" target="_blank" href="https://www.youtube.com/channel/UCtK7s89RJ9X9Nv9EQCMu9Lg" title="Canal de Youtube de Podemos"></a></li>
+				<li><a class="twitter" target="_blank" href="https://twitter.com/ahorapodemos" title="Perfil de Twitter de Podemos"></a></li>
+				<li><a class="fb" target="_blank" href="https://www.facebook.com/pages/Podemos/269212336568846" title="Página de Facebook de Podemos"></a></li>
+				<li><a class="youtube" target="_blank" href="https://www.youtube.com/channel/UCtK7s89RJ9X9Nv9EQCMu9Lg" title="Canal de Youtube de Podemos"></a></li>
 			</ul>
 		</nav>
 	</div>
