@@ -19,8 +19,8 @@
 				<h2><?php the_title(); ?></h2>
 				<?php
 				$twitter =   get_post_meta($post->ID, 'twitter', true);
-				$facebook =   get_post_meta($post->ID, 'facebook', true);
-				$google_plus =   get_post_meta($post->ID, 'google_plus', true);
+				$facebook =   get_post_meta($post->ID, 'grupo_facebook', true);
+	
 				if ( ( $twitter ) || ($facebook) ) { ?>
 					<aside class="social_profiles">
 					<?php if ($twitter) { ?><a target="_blank" href="<?php echo $twitter  ?>" class="icon twitter"></a><?php  } ?>

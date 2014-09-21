@@ -12,7 +12,7 @@
 	<nav class="nav_container">
 		<div class="container">
 			<?php wp_nav_menu( array( 'container_class' => 'main_nav', 'items_wrap' => '<ul id="%1$s" class="%2$s" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">%3$s</ul>', 'theme_location' => 'primary' ) ); ?>
-			<?php get_search_form(); ?>
+                  <button id="search" class="icon search" title="Desplegar Buscador"></button>
                   <a class="icon user login" href="/wp-login.php" title="Iniciar Sesión"></a>
 		</div>
             <?php wp_nav_menu_select(
@@ -22,11 +22,5 @@
                 )
             ); ?>
 	</nav>
-
-
-
-
-
-
-
 </header>
+  <?php get_search_form(); ?>

@@ -175,6 +175,9 @@ textarea {
 
 button {
   overflow: visible;
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
 button,

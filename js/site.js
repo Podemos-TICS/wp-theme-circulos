@@ -4,4 +4,8 @@ jQuery(document).ready(function($) {
         window.location = jQuery(this).find("option:selected").val();
     });
 
+    $('#search').click(function() {
+      $('#searchform_container').toggleClass('open');
+    });
+
 });

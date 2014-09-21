@@ -60,7 +60,7 @@
 		<nav class="legal">
 			<a href="/aviso-legal">Aviso legal</a>
 			<a href="/privacidad">Privacidad</a>
-			<a href="/uso-de-cookies">Uso de Cookies</a>
+			<a href="/politica-de-cookies">Política de Cookies</a>
 		</nav>
 	</div>
 </footer>

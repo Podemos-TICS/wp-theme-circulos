@@ -23,13 +23,12 @@
 						</header>
 						<h2 itemprop="name"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 						<div class="contact_text" itemprop="description">
-							<?php echo excerpt_count(100); ?>
+							<?php $excerpt = get_the_excerpt();  echo(count_char('140', $excerpt)); ?>
 						</div>
 						<?php
-						$twitter =   get_post_meta($post->ID, 'twitter', true);
-						$facebook =   get_post_meta($post->ID, 'facebook', true);
-						$google_plus =   get_post_meta($post->ID, 'google_plus', true);
-						if ( ( $twitter ) || ($facebook) ) { ?>
+						$twitter = get_post_meta($post->ID, 'twitter', true);
+						$facebook = get_post_meta($post->ID, 'grupo_facebook', true);
+						if (($twitter) || ($facebook)) { ?>
 							<aside class="social_profiles">
 							<?php if ($twitter) { ?><a target="_blank" href="<?php echo $twitter  ?>" class="icon twitter"></a><?php  } ?>
 							<?php if ($facebook) { ?> <a target="_blank" href="<?php echo $facebook ?>" class="icon facebook"></a><?php  } ?>
@@ -38,11 +37,13 @@
 					</article>
 				<?php endwhile; ?>
 			</section>
+			<?php if (!previous_posts_link){ ?>
 			<!-- Condicional para que no salga este código en caso de que no sea necesario -->
 			<nav class="page_nav" role="navigation">
 				<div class="previous"><?php previous_posts_link( 'Anteriores' ); ?></div>
 				<div class="next"><?php next_posts_link( 'Siguientes', '' ); ?></div>
 			</nav>
+			<?php }?>
 		</div>
 </section>
 

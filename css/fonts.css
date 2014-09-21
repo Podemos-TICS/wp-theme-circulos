@@ -141,6 +141,10 @@
   content: "\e609";
 }
 
+.icon.search::before{
+  content: "\e60f";
+}
+
 .icon.diaspora{
   background: url('../img/ico-diaspora.png') no-repeat center;
 }

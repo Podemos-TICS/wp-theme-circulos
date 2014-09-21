@@ -33,6 +33,7 @@
   .last_post header figure img {
     height: auto;
     width: 100%;
+    min-height: 216px;
   }
 
   .last_post header figure img {
@@ -80,6 +81,7 @@
     height: auto;
     margin: 0 auto;
     width: 100%;
+    min-height: 336px;
   }
 
 }
@@ -88,6 +90,8 @@
 
   #searchform,
   #pre_header,
+  #searchform_container,
+  #search,
   .login {
     display: none;
   }

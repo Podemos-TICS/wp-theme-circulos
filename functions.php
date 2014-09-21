@@ -153,10 +153,10 @@
 	================================================== */
 
 	function custom_search_form($form) {
-		$form = '<form role="search" method="get" id="searchform" action="' . home_url('/') . '" >
+		$form = '<aside id="searchform_container"><form role="search" method="get" id="searchform" action="' . home_url('/') . '" >
 		<input type="text" class="field" value="' . get_search_query() . '" name="s" id="s" placeholder="Buscar"/>
 		<input type="submit" class="submit" id="searchsubmit" value="' . esc_attr__('S') . '"/>
-		</form>';
+		</form></aside>';
 
 		return $form;
 	}
@@ -181,45 +181,19 @@
 	add_image_size('last_post', 466, 254, true); // HOME LAST POST
       add_image_size('contact_face', 240, 240, true); // HOME LAST POST
 
-	/* Excerpt Count
-	================================================== */
-
-	function excerpt_count($count){
-		$excerpt = get_the_excerpt();
-		if (empty($excerpt)) {
-			$excerpt = get_the_content();
-		};
-		$excerpt = strip_tags($excerpt);
-		$excerpt = substr($excerpt, 0, $count);
-		return $excerpt;
-	}
-
 
 	/* Title Count
-	==================================================
-
-	function title_count($count) {
-		$permalink = get_permalink($post->ID);
-		$the_title = get_the_title();
+	================================================== */
+	function count_char($count, $the_title) {
+		$legth = strlen($the_title);
+		if ($legth > $count){
 		$the_title = strip_tags($the_title);
 		$the_title = substr($the_title, 0, $count);
-		$the_title = substr($the_title, 0, strripos($the_title, " "));
+		//$the_title = substr($the_title, 0, strripos($the_title, " "));
 		$the_title = $the_title . '...';
+		}
 		return $the_title;
-	}*/
-
-
-      /* Excerpt Class
-      ==================================================
-
-      function add_excerpt_class($excerpt) {
-          $excerpt = str_replace("<p", "<p itemprop=\"alternativeHeadline\" class=\"excerpt\"", $excerpt);
-          return $excerpt;
-      }
-
-      add_filter("the_excerpt", "add_excerpt_class");
-
-      */
+	}
 
       /* Content without inline styles
       ================================================== */
@@ -257,9 +231,10 @@
       }
 
       /* Campos personalizados para usuarios
-        ==================================================
+        ================================================== */
 
-      function fb_add_custom_user_profile_fields($user) {
+
+      function campos_usuarios($user) {
       ?>
       <h3><?php _e('Información extra', 'your_textdomain'); ?></h3>
 
@@ -276,68 +251,23 @@
                   <span class="description"><?php _e('Introduce la url de autor de Google Plus.', 'your_textdomain'); ?></span>
               </td>
           </tr>
-          <tr>
-              <th><label for="direccion_postal"><?php _e('Dirección Postal', 'your_textdomain'); ?></label></th>
-              <td>
-                  <input type="text" name="direccion_postal" id="direccion_postal" value="<?php echo esc_attr(get_the_author_meta('direccion_postal', $user->ID)); ?>" class="regular-text" placeholder="Calle Zurita, 17" /><br />
-                  <span class="description"><?php _e('Introduce la dirección postal.', 'your_textdomain'); ?></span>
-              </td>
-              <th><label for="localidad"><?php _e('Localidad', 'your_textdomain'); ?></label></th>
-              <td>
-                  <input type="text" name="localidad" id="localidad" value="<?php echo esc_attr(get_the_author_meta('localidad', $user->ID)); ?>" class="regular-text" placeholder="Altea" /><br />
-                  <span class="description"><?php _e('Introduce la localidad.', 'your_textdomain'); ?></span>
-              </td>
-          </tr>
-          <tr>
-              <th><label for="provincia"><?php _e('Provincia', 'your_textdomain'); ?></label></th>
-              <td>
-                  <input type="text" name="provincia" id="provincia" value="<?php echo esc_attr(get_the_author_meta('provincia', $user->ID)); ?>" class="regular-text" placeholder="Alicante" /><br />
-                  <span class="description"><?php _e('Introduce la provincia.', 'your_textdomain'); ?></span>
-              </td>
-              <th><label for="codigo_postal"><?php _e('Código Postal', 'your_textdomain'); ?></label></th>
-              <td>
-                  <input type="text" name="codigo_postal" id="codigo_postal" value="<?php echo esc_attr(get_the_author_meta('codigo_postal', $user->ID)); ?>" class="regular-text" placeholder="03590" /><br />
-                  <span class="description"><?php _e('Introduce la codigo_postal.', 'your_textdomain'); ?></span>
-              </td>
-          </tr>
-          <tr>
-              <th><label for="pais"><?php _e('País', 'your_textdomain'); ?></label></th>
-              <td>
-                  <input type="text" name="pais" id="pais" value="<?php echo esc_attr(get_the_author_meta('pais', $user->ID)); ?>" class="regular-text" placeholder="España" /><br />
-                  <span class="description"><?php _e('Introduce la pais.', 'your_textdomain'); ?></span>
-              </td>
-          </tr>
-          <tr>
-              <th><label for="telefono"><?php _e('Teléfono', 'your_textdomain'); ?></label></th>
-              <td>
-                  <input type="text" name="telefono" id="telefono" value="<?php echo esc_attr(get_the_author_meta('telefono', $user->ID)); ?>" class="regular-text" placeholder="000 000 000" /><br />
-                  <span class="description"><?php _e('Teléfono de contacto.', 'your_textdomain'); ?></span>
-              </td>
-          </tr>
       </table>
     <?php
     }
 
-    function fb_save_custom_user_profile_fields($user_id) {
+    function guardar_campos_usuarios($user_id) {
       if (!current_user_can('edit_user', $user_id))
         return FALSE;
       update_usermeta($user_id, 'twitter', $_POST['twitter']);
       update_usermeta($user_id, 'google_plus', $_POST['google_plus']);
-      update_usermeta($user_id, 'direccion_postal', $_POST['direccion_postal']);
-      update_usermeta($user_id, 'codigo_postal', $_POST['codigo_postal']);
-      update_usermeta($user_id, 'localidad', $_POST['localidad']);
-      update_usermeta($user_id, 'provincia', $_POST['provincia']);
-      update_usermeta($user_id, 'pais', $_POST['pais']);
-      update_usermeta($user_id, 'telefono', $_POST['telefono']);
     }
 
-      add_action('show_user_profile', 'fb_add_custom_user_profile_fields');
-      add_action('edit_user_profile', 'fb_add_custom_user_profile_fields');
+      add_action('show_user_profile', 'campos_usuarios');
+      add_action('edit_user_profile', 'campos_usuarios');
 
-      add_action('personal_options_update', 'fb_save_custom_user_profile_fields');
-      add_action('edit_user_profile_update', 'fb_save_custom_user_profile_fields');
+      add_action('personal_options_update', 'guardar_campos_usuarios');
+      add_action('edit_user_profile_update', 'guardar_campos_usuarios');
 
-       */
 
       /* Custom Post Type Evento and Custom Fields
         ================================================== */
@@ -991,3 +921,7 @@
           define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
           require_once dirname( __FILE__ ) . '/inc/options-framework.php';
       }
+      
+
+              
+      

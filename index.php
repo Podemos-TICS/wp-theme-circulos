@@ -26,13 +26,14 @@
 					<figure><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="nofollow"><?php echo get_the_post_thumbnail($post_id, 'last_post')?></a></figure>
 					<?php show_parent_category(); ?>
 				</header>
-				<h2 itemprop="headline"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+				<h2 itemprop="headline"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php $the_title = get_the_title(); echo(count_char('60', $the_title)); ?></a></h2>
+				
 				<aside class="post_author clearfix" itemscope itemtype="http://data-vocabulary.org/Person">
 					<figure itemprop="photo"><?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?></figure>
 					<h4 rel="author"><a target="_blank" title="Google Plus de <?php echo get_the_author() ; ?>" href="<?php the_author_meta( 'google_plus' ); ?>?rel=author" itemprop="contact"> de <span itemprop="name"><?php echo get_the_author() ; ?></span></a></h4>
 					<time datetime="<?php the_time( 'Y/m/d g:i:s A' ); ?>" pubdate><?php the_date( 'j \d\e F Y'); ?></time>
 				</aside>
-				<p itemprop="alternativeHeadline" class="excerpt"><?php echo excerpt_count(160); ?></p>
+				<p itemprop="alternativeHeadline" class="excerpt"><?php $excerpt = get_the_excerpt();  echo(count_char('140', $excerpt)); ?></p>
 			</article>
 			<?php } $wp_query = $temp_query; ?>
 			<?php else: ?>
@@ -40,8 +41,6 @@
 			<?php endif; ?>
 			<a href="/blog" class="button" title="Ver más noticias">Ver más noticias</a>
 		</section>
-
-
 		<?php $args = array( 'post_type' => 'evento', 'posts_per_page' => 4 ); ?>
 		<?php $loop = new WP_Query( $args ); ?>
 		<?php  $existe_evento=$loop->have_posts();
@@ -55,7 +54,7 @@
 					</header>
 					<h2 itemprop="name"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 					<div class="event_text module" itemprop="description">
-						<?php echo excerpt_count(160); ?>
+						<?php $excerpt = get_the_excerpt();  echo(count_char('140', $excerpt)); ?>
 					</div>
 					<?php
 					$fecha_inicio =   get_post_meta($post->ID, 'fecha_inicio', true);

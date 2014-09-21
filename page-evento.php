@@ -14,16 +14,16 @@
 			<section class="last_events clearfix">
 				<h3 class="section_title">Últimos Eventos</h3>
 				<?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				$args = array( 'post_type' => 'evento', 'posts_per_page' => 10, 'paged' => $paged );
+				$args = array( 'post_type' => 'evento', 'posts_per_page' => 10, 'paged' => $paged, 'orderby'=>'date' );
 				$wp_query = new WP_Query($args);
 				while ( have_posts() ) : the_post(); ?>
 					<article class="post event" itemscope itemtype="http://schema.org/Event">
 						<header>
 							<figure><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php echo get_the_post_thumbnail($post_id, 'post')?></a></figure>
 						</header>
-						<h2 itemprop="name"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+						<h2 itemprop="name"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php $the_title = get_the_title(); echo(count_char('60', $the_title)); ?></a></h2>
 						<div class="event_text module" itemprop="description">
-							<?php echo get_the_excerpt(); ?>
+							<?php $excerpt = get_the_excerpt();  echo(count_char('140', $excerpt)); ?>
 						</div>
 
 						<?php
@@ -50,11 +50,13 @@
 					</article>
 				<?php endwhile; ?>
 			</section>
+			<?php if (!previous_posts_link){ ?>
 			<!-- Condicional para que no salga este código en caso de que no sea necesario -->
 			<nav class="page_nav" role="navigation">
 				<div class="previous"><?php previous_posts_link( 'Anteriores' ); ?></div>
 				<div class="next"><?php next_posts_link( 'Siguientes', '' ); ?></div>
 			</nav>
+			<?php }?>
 		</div>
 </section>
 

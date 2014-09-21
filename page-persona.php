@@ -21,9 +21,9 @@
 						<header>
 							<figure><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php echo get_the_post_thumbnail($post_id, 'contact_face')?></a></figure>
 						</header>
-						<h2 itemprop="additionalName"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+						<h2 itemprop="additionalName"><a itemprop="url" href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark"><?php $the_title = get_the_title(); echo(count_char('60', $the_title)); ?></a></h2>
 						<div class="contact_text" itemprop="description">
-							<?php echo excerpt_count(100); ?>
+							<?php $excerpt = get_the_excerpt();  echo(count_char('100', $excerpt)); ?>
 						</div>
 						<?php
 						$twitter =   get_post_meta($post->ID, 'twitter', true);
@@ -39,11 +39,13 @@
 					</article>
 				<?php endwhile; ?>
 			</section>
+			<?php if (!previous_posts_link){ ?>
 			<!-- Condicional para que no salga este código en caso de que no sea necesario -->
 			<nav class="page_nav" role="navigation">
 				<div class="previous"><?php previous_posts_link( 'Anteriores' ); ?></div>
 				<div class="next"><?php next_posts_link( 'Siguientes', '' ); ?></div>
 			</nav>
+			<?php }?> 
 		</div>
 </section>
 
