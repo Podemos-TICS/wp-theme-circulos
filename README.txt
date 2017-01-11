@@ -14,6 +14,14 @@ En esta primera versión hemos abordado todos los aspectos iniciales que hemos c
 Tenemos pensadas muchas mejoras pero quien realmente decidirá estas mejoras serán los propios círculos que lo soliciten.
 
 
+Notas de Instalación
+----
+Para que el thème se vea correctamente se ha de importar el contenido del archivo incluido en el tema. circulospodemos_volcado_inicial_de_datos_para_que_el_tema funcione_2016-08-11.xml
+
+Sin él , las características css no se comienzan a ver en la web y el theme no se ve correctamente. 
+
+
+
 
 Licencia
 ----
