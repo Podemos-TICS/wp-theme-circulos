@@ -153,10 +153,20 @@
 	================================================== */
 
 	function custom_search_form($form) {
-		$form = '<aside id="searchform_container"><form role="search" method="get" id="searchform" action="' . home_url('/') . '" >
+		if ( is_user_logged_in() ) {
+	
+	$form = '<aside id="searchform_container_in"><form role="search" method="get" id="searchform" action="' . home_url('/') . '" >
 		<input type="text" class="field" value="' . get_search_query() . '" name="s" id="s" placeholder="Buscar"/>
 		<input type="submit" class="submit" id="searchsubmit" value="' . esc_attr__('S') . '"/>
 		</form></aside>';
+		
+		} else {
+
+	$form = '<aside id="searchform_container"><form role="search" method="get" id="searchform" action="' . home_url('/') . '" >
+		<input type="text" class="field" value="' . get_search_query() . '" name="s" id="s" placeholder="Buscar"/>
+		<input type="submit" class="submit" id="searchsubmit" value="' . esc_attr__('S') . '"/>
+		</form></aside>';
+		}
 
 		return $form;
 	}
