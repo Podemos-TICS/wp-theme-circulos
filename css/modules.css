@@ -187,6 +187,24 @@
 	top: 298px;
 }
 
+#searchform_container_in{
+	background: #391d3a;
+	padding-bottom: 4px;
+	position: absolute;
+	width: 100%;
+	padding: 10px;
+	z-index: 2;
+	top: 234px;
+	-webkit-transition: top 200ms ease-in-out;
+	-moz-transition: top 200ms ease-in-out;
+	-ms-transition: top 200ms ease-in-out;
+	-o-transition: top 200ms ease-in-out;
+	transition: top 200ms ease-in-out;
+
+}
+
+#searchform_container_in.open{
+	top: 295px;
 
 #searchform {
 	width: 1000px;
