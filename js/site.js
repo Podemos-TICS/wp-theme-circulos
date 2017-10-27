@@ -7,5 +7,9 @@ jQuery(document).ready(function($) {
     $('#search').click(function() {
       $('#searchform_container').toggleClass('open');
     });
+    
+    $('#search').click(function() {
+      $('#searchform_container_in').toggleClass('open');
+    });
 
 });
